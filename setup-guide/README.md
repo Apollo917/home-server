@@ -19,7 +19,7 @@ In this step-by-step home server "base" setup guide, you will learn how to:
 - [Portainer](../services/portainer/README.md)
 - [Pi-hole](../services/pi-hole/README.md)
 - [Traefik](../services/traefik/README.md)
-- [Cloudflare](./setting-up-a-domain-name.md)
+- [Cloudflare](./cloudflare.md)
 
 ## Resume
 
