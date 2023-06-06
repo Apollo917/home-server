@@ -1,0 +1,29 @@
+# More details at: https://hub.docker.com/r/linuxserver/heimdall/
+
+version: "2.1"
+
+services:
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:latest
+    container_name: heimdall
+    restart: unless-stopped
+    environment:
+      TZ: ${HEIMDALL_TZ:-UTC}
+      PUID: ${HEIMDALL_PUID:?error} # system user id: id -u
+      PGID: ${HEIMDALL_PGID:?error} # system user group id: id -g
+    volumes:
+      - /data/heimdall/data:/config
+    networks:
+      - proxy # Same network as for Traefik
+    labels:
+      # Traefik integration labels - start
+      - "traefik.enable=true"
+      - "traefik.http.services.heimdall.loadBalancer.server.port=80"
+      - "traefik.http.routers.heimdall-secure.service=heimdall"
+      - "traefik.http.routers.heimdall-secure.tls=true"
+      - "traefik.http.routers.heimdall-secure.entrypoints=private-https"
+      - "traefik.http.routers.heimdall-secure.rule=Host(`${HEIMDALL_SERVICE_URL:?error}`)" # e.g. heimdall.example.com
+      # Traefik integration labels - end
+networks:
+  proxy:
+    external: true

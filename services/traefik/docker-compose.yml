@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+      - "8443:8443"
+    environment:
+      TZ: ${TRAEFIK_TZ:-UTC}
+      CF_API_EMAIL: ${TRAEFIK_CLOUDFLARE_EMAIL:?error}
+      CF_API_KEY: ${TRAEFIK_CF_API_KEY:?error}
+      # CF_DNS_API_TOKEN: ${TRAEFIK_CF_DNS_API_TOKEN:?error}
+      # be sure to use the correct one depending on if you are using a token or key
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /data/traefik/data/traefik.yml:/traefik.yml:ro
+      - /data/traefik/data/config.yml:/config.yml:ro
+      - /data/traefik/data/acme.json:/acme.json
+    networks:
+      - proxy # Network, created for Traefik
+    labels:
+      # Traefik integration labels - start
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+      - "traefik.http.routers.traefik-secure.service=api@internal"
+      - "traefik.http.routers.traefik-secure.tls=true"
+      - "traefik.http.routers.traefik-secure.entrypoints=private-https"
+      - "traefik.http.routers.traefik-secure.rule=Host(`${TRAEFIK_SERVICE_URL?:error}`)" # e.g. traefik.example.com
+      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].main=${TRAEFIK_SERVER_DOMAIN:?error}"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.${TRAEFIK_SERVER_DOMAIN:?error}"
+      # Traefik integration labels - end
+networks:
+  proxy:
+    external: true

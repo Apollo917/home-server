@@ -1,0 +1,56 @@
+# Dashy config example
+
+appConfig:
+  hideComponents:
+    hideFooter: true
+    hideSearch: true
+    hideSettings: true
+  enableMultiTasking: false
+  disableUpdateChecks: true
+  layout: auto
+  iconSize: large
+  theme: nord
+  language: en
+  disableConfiguration: true
+  disableContextMenu: true
+pageInfo:
+  title: Home
+  description: ''
+  navLinks:
+    - title: GitHub
+      path: https://github.com/Apollo917
+      target: newtab
+  footerText: ''
+sections:
+  - name: Containerization
+    icon: ''
+    displayData:
+      sortBy: most-used
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Portainer
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/portainer.svg
+        url: https://portainer.example.com
+        target: newtab
+        id: 0_1697_portainer
+  - name: Networking
+    displayData:
+      sortBy: most-used
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Pi-hole
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/pi-hole.svg
+        url: https://pihole.example.com
+        target: newtab
+        id: 0_1064_pihole
+      - title: Traefik
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/traefik.svg
+        url: https://traefik.example.com
+        target: newtab
+        id: 1_1064_traefik

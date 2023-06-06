@@ -1,0 +1,38 @@
+# More details at: https://github.com/pi-hole/docker-pi-hole#quick-start
+
+version: "3"
+
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    environment:
+      TZ: ${PIHOLE_TZ:-UTC}
+      WEBPASSWORD: ${PIHOLE_PASSWORD:?error} # Admin panel password, random will be generated if not set
+      PIHOLE_DNS_: ${PIHOLE_DNS:-1.1.1.1;1.0.0.1;8.8.8.8;8.8.4.4}
+      DNSSEC: ${PIHOLE_DNSSEC:-true}
+      DNSMASQ_LISTENING: ${PIHOLE_DNSMASQ_LISTENING:-single}
+      WEBTHEME: ${PIHOLE_WEBTHEME:-default-dark}
+      FTLCONF_LOCAL_IPV4: ${PIHOLE_SERVER_IP:?error} # Actual server LAN IP. Matches DHCP conf file IP
+      VIRTUAL_HOST: ${PIHOLE_SERVICE_URL:?error} # Same as port traefik config
+    volumes:
+      - /data/pihole/data/pihole:/etc/pihole/
+      - /data/pihole/data/dnsmasq.d:/etc/dnsmasq.d/
+    networks:
+      - proxy # Same network as for Traefik
+    labels: 
+      # Traefik integration labels - start
+      - "traefik.enable=true"
+      - "traefik.http.services.pihole.loadBalancer.server.port=80"
+      - "traefik.http.routers.pihole-secure.service=pihole"
+      - "traefik.http.routers.pihole-secure.tls=true"
+      - "traefik.http.routers.pihole-secure.entrypoints=private-https"
+      - "traefik.http.routers.pihole-secure.rule=Host(`${PIHOLE_SERVICE_URL:?error}`)" # e.g. pihole.example.com
+      # Traefik integration labels - end
+networks:
+  proxy:
+    external: true

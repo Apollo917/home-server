@@ -1,0 +1,58 @@
+global:
+  sendAnonymousUsage: false
+
+api:
+  dashboard: true
+  debug: true
+
+entryPoints:
+  private-http:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: private-https
+          scheme: https
+  private-https:
+    address: ":443"
+    http:
+      middlewares:
+        - local-ips-whitelist@file
+  public-http:
+    address: ":8080"
+    http:
+      redirections:
+        entryPoint:
+          to: public-https
+          scheme: https
+  public-https:
+    address: ":8443"
+    http:
+      middlewares:
+        - local-ips-whitelist@file
+        - cloudflare-ips-whitelist@file
+
+serversTransport:
+  insecureSkipVerify: true
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+  file:
+    filename: /config.yml
+
+certificatesResolvers:
+  cloudflare:
+    acme:
+      email: your_cloudflare@email.com
+      storage: /acme.json
+      dnsChallenge:
+        provider: cloudflare
+        # Uncomment this if you have issues pulling certificates through cloudflare,
+        # By setting this flag to true disables the need to wait for the propagation of the
+        # TXT record to all authoritative name servers.
+        #disablePropagationCheck: true
+        resolvers:
+          - "1.1.1.1:53"
+          - "1.0.0.1:53"

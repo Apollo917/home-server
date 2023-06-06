@@ -1,0 +1,28 @@
+# More info at: https://github.com/Lissy93/dashy/blob/master/docs/deployment.md
+
+version: "3.8"
+services:
+  dashy:
+    image: lissy93/dashy:latest
+    container_name: dashy
+    restart: unless-stopped
+    environment:
+      TZ: ${DASHY_TZ?-UTC}
+      UID: ${DASHY_UID:?error} # system user id: id -u
+      GID: ${DASHY_GID:?error} # system user group id: id -g
+    volumes:
+      - /data/dashy/data/conf.yml:/app/public/conf.yml
+    networks:
+      - proxy # Same network as for Traefik
+    labels:
+      # Traefik integration labels - start
+      - "traefik.enable=true"
+      - "traefik.http.services.dashy.loadBalancer.server.port=80"
+      - "traefik.http.routers.dashy-secure.service=dashy"
+      - "traefik.http.routers.dashy-secure.tls=true"
+      - "traefik.http.routers.dashy-secure.entrypoints=private-https"
+      - "traefik.http.routers.dashy-secure.rule=Host(`${DASHY_SERVICE_URL:?error}`)" # e.g. dashy.example.com
+      # Traefik integration labels - end
+networks:
+  proxy:
+    external: true

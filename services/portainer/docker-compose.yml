@@ -1,0 +1,33 @@
+# More details at: https://docs.portainer.io/start/install/server/docker/linux
+
+version: "3"
+
+services:
+  portainer:
+    image: portainer/portainer-ee:latest
+    container_name: portainer
+    restart: unless-stopped
+    ports:
+      - "9443:9443"
+    security_opt:
+      - no-new-privileges:true
+    env_file: .env
+    environment:
+      TZ: ${PORTAINER_TZ:-UTC}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /data/portainer/data:/data
+    networks:
+      - proxy # Same network as for Traefik
+    labels:
+      # Traefik integration labels - start
+      - "traefik.enable=true"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+      - "traefik.http.routers.portainer-secure.service=portainer"
+      - "traefik.http.routers.portainer-secure.tls=true"
+      - "traefik.http.routers.portainer-secure.entrypoints=private-https"
+      - "traefik.http.routers.portainer-secure.rule=Host(`${PORTAINER_SERVICE_URL:?error}`)" # e.g. portainer.example.com
+      # Traefik integration labels - end
+networks:
+  proxy:
+    external: true
