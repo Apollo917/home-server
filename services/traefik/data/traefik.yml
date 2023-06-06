@@ -29,7 +29,6 @@ entryPoints:
     address: ":8443"
     http:
       middlewares:
-        - local-ips-whitelist@file
         - cloudflare-ips-whitelist@file
 
 serversTransport:
