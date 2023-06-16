@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  bind9:
+    image: ubuntu/bind9:latest
+    container_name: bind9
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    environment:
+      BIND9_USER: ${BIND9_USER:-root}
+      TZ: ${BIND9_TZ:-UTC}
+    volumes:
+      - /data/bind9/data/config:/etc/bind
+      - /data/bind9/data/cache:/var/cache/bind
+      - /data/bind9/data/records:/var/lib/bind
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true
