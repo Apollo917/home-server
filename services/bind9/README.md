@@ -1,5 +1,7 @@
 # Bind9
 
+UNDER CONSTRUCTION
+
 ## Resources
 
 ### YouTube
