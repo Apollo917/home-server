@@ -21,6 +21,10 @@ Here is a collection of the services I have used or currently using. Every servi
 - [Prometheus](./prometheus/README.md)
 - [Grafana](./grafana/README.md)
 
+## Databases
+
+- [MySQL](./mysql/README.md)
+
 ## Dashboards
 
 - [Dashy](./dashy/README.md)
