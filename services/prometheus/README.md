@@ -1,5 +1,8 @@
 # Prometheus
 
+- [Prometheus](https://prometheus.io/)
+- [Prometheus docs](https://prometheus.io/docs/introduction/overview/)
+
 UNDER CONSTRUCTION
 
 ## Resources
@@ -9,6 +12,9 @@ UNDER CONSTRUCTION
 - [Server Monitoring // Prometheus and Grafana Tutorial](https://youtu.be/9TJx7QTrTyo)
 
 ### Docs & articles
+
+- [Prometheus](https://prometheus.io/)
+- [Prometheus docs](https://prometheus.io/docs/introduction/overview/)
 
 ### Configs
 
