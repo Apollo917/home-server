@@ -29,3 +29,7 @@ Here is a collection of the services I have used or currently using. Every servi
 
 - [Dashy](./dashy/README.md)
 - [Heimdall](./heimdall/README.md)
+
+## Etc
+
+- [Nextcloud](./nextcloud/README.md)

@@ -1,0 +1,48 @@
+version: "2"
+
+services:
+  db:
+    image: mariadb:10.6
+    restart: unless-stopped
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    volumes:
+      - /data/nextcloud/data/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${NEXTCLOUD_MYSQL_ROOT_PASSWORD:?error}
+      - MYSQL_PASSWORD=${NEXTCLOUD_MYSQL_PASSWORD:?error}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    networks:
+      - proxy
+
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud
+    restart: unless-stopped
+    links:
+      - db
+    environment:
+      - MYSQL_PASSWORD=${NEXTCLOUD_MYSQL_PASSWORD:?error}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
+      - NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_SERVICE_URL:?error}
+    volumes:
+      - /data/nextcloud/data/nextcloud:/var/www/html
+      - /data/nextcloud/data/data:/var/www/html/data
+      #- /data/nextcloud/data/config:/var/www/html/config
+      #- /data/nextcloud/data/apps:/var/www/html/custom_apps
+    networks:
+      - proxy # Same network as for Traefik
+    labels:
+      # Traefik integration labels - start
+      - "traefik.enable=true"
+      - "traefik.http.services.nextcloud.loadBalancer.server.port=80"
+      - "traefik.http.routers.nextcloud-secure.service=nextcloud"
+      - "traefik.http.routers.nextcloud-secure.tls=true"
+      - "traefik.http.routers.nextcloud-secure.entrypoints=private-https"
+      - "traefik.http.routers.nextcloud-secure.rule=Host(`${NEXTCLOUD_SERVICE_URL:?error}`)" # e.g. nextcloud.example.com
+      # Traefik integration labels - end
+networks:
+  proxy:
+    external: true
