@@ -23,6 +23,7 @@ Here is a collection of the services I have used or currently using. Every servi
 
 ## Databases
 
+- [Postgres](./postgres/README.md)
 - [MySQL](./mysql/README.md)
 
 ## Dashboards

@@ -1,0 +1,26 @@
+version: "3.1"
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?error}
+      POSTGRES_INITDB_ARGS: ""
+    volumes:
+      - /data/postgres/data:/var/lib/postgresql/data
+    networks:
+      - proxy # Same network as for Traefik
+    labels:
+      # Traefik integration labels - start
+      - "traefik.enable=true"
+      - "traefik.http.services.postgres.loadBalancer.server.port=5432"
+      - "traefik.http.routers.postgres-secure.service=postgres"
+      - "traefik.http.routers.postgres-secure.tls=true"
+      - "traefik.http.routers.postgres-secure.entrypoints=private-https"
+      - "traefik.http.routers.postgres-secure.rule=Host(`${POSTGRES_SERVICE_URL:?error}`)" # e.g. postgres.example.com
+      # Traefik integration labels - end
+networks:
+  proxy:
+    external: true
