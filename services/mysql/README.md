@@ -24,4 +24,4 @@ UNDER CONSTRUCTION
 ### Configs
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./.env)
+- [env file with required and optional environment variables](./service.env)

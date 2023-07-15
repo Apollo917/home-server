@@ -21,7 +21,7 @@ Until **Traefik** is not set up, it is better to keep port 80 accessible from ou
 **Configs:**
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./.env)
+- [env file with required and optional environment variables](./service.env)
 
 **Guides:**
 
@@ -109,4 +109,4 @@ Here are a few ways to solve or live with it:
 ### Configs
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./.env)
+- [env file with required and optional environment variables](./service.env)

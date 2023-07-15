@@ -30,7 +30,7 @@ Until Traefik and Pi-hole setup, it is better to keep port 9443 accessible from 
 **Configs:**
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./.env)
+- [env file with required and optional environment variables](./service.env)
 
 **Guides:**
 
@@ -57,4 +57,4 @@ Until Traefik and Pi-hole setup, it is better to keep port 9443 accessible from 
 ### Configs
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./.env)
+- [env file with required and optional environment variables](./service.env)

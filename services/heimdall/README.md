@@ -14,7 +14,7 @@ Heimdall is an elegant, easy-to-use and setup solution to organize your web appl
 **Configs:**
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./.env)
+- [env file with required and optional environment variables](./service.env)
 
 **Guides:**
 
@@ -34,4 +34,4 @@ Heimdall is an elegant, easy-to-use and setup solution to organize your web appl
 ### Configs
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./.env)
+- [env file with required and optional environment variables](./service.env)
