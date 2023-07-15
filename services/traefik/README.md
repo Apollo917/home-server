@@ -48,12 +48,12 @@ You can find more info about Traefik configuration types by the following link: 
 
 There are defined two similar groups of endpoints.
 
-The first one with a "**private-**" prefix only accepts requests from the local network.<br>
+The first one with a "**private-**" prefix only accepts requests from the local network (range of IP addresses).<br>
 This behavior is achieved using **local-ips-whitelist** middleware, defined in the **config.yml** dynamic config file.<br>
 Private entry points are listening to **80** and **443** TCP ports.
 
-The second one with a "**public-**" prefix only accepts requests from the local and Cloudflare networks.<br>
-This behavior is achieved using **local-ips-whitelist** and **cloudflare-ips-whitelist** middlewares, defined in the **config.yml** dynamic config file.<br>
+The second one with a "**public-**" prefix only accepts requests from the Cloudflare's range of IP addresses.<br>
+This behavior is achieved using **cloudflare-ips-whitelist** middlewares, defined in the **config.yml** dynamic config file.<br>
 Public entry points are listening to **8080** and **8443** TCP ports.
 
 Remember, you have set up the router port forwarding in one of the previous steps: [The basis for accessing the home server from the Internet](../../setup-guide/router-configuration.md#the-basis-for-accessing-the-home-server-from-the-internet)?<br>
