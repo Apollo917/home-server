@@ -19,7 +19,7 @@ This network is required for Traefik to have the possibility to proxy incoming r
 **Configs:**
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./.env)
+- [env file with required and optional environment variables](./service.env)
 - [data/traefik.yml](./data/traefik.yml)
 - [data/config.yml](./data/config.yml)
 - [data/acme.json](./data/acme.json)
@@ -111,7 +111,7 @@ Services integration configuration is performed via **Docker labels**.
 ### Configs
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./traefik.env)
+- [env file with required and optional environment variables](./service.env)
 - [data/traefik.yml](./data/traefik.yml)
 - [data/config.yml](./data/config.yml)
 - [data/acme.json](./data/acme.json)

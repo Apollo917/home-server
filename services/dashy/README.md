@@ -14,7 +14,7 @@ Dashy is a high customizable dashboard for your services.
 **Configs:**
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./.env)
+- [env file with required and optional environment variables](./service.env)
 - [data/conf.yml - Dashy configuration file example](./data/conf.yml)
 
 **Guides:**
@@ -35,5 +35,5 @@ Dashy is a high customizable dashboard for your services.
 ### Configs
 
 - [Docker compose file](./docker-compose.yml)
-- [env file with required and optional environment variables](./.env)
+- [env file with required and optional environment variables](./service.env)
 - [data/conf.yml - Dashy configuration file example](./data/conf.yml)
