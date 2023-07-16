@@ -1,11 +1,11 @@
 $TTL 2d
-@             IN    SOA   your.domain. root.your.domain. (
-                          1607231355     ; serial
+@             IN    SOA   domain. your.domain. (
+                          1607231505     ; serial
                           12h            ; refresh
                           15m            ; retry
                           3w             ; expire
                           2h )           ; minimum TTL
 ;
-              IN    NS    your.domain.
+@             IN    NS    domain.
 @             IN    A     192.168.0.100
 *             IN    A     192.168.0.100
