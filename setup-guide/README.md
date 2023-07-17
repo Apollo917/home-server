@@ -17,10 +17,10 @@ In this step-by-step home server "base" setup guide, you will learn how to:
 **Core services setup**
 
 - [Portainer](../services/portainer/README.md)
-- [Pi-hole](../services/pi-hole/README.md)
+- [Bind9](../services/bind9/README.md)
 - [Traefik](../services/traefik/README.md)
 - [Cloudflare](./cloudflare.md)
 
 ## Resume
 
-And now that you have completed all steps, it is time to activate port forwarding on your router and use your home server from anywhere in the world. Good luck! 🙂
+And now that you have completed all steps, it is time to activate port forwarding on your router and use your home server from anywhere in the world. Good luck, have fun, and check out the [services](./services/README.md) section for more 🙂

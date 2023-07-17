@@ -37,15 +37,15 @@ So please, be careful and get familiar with the service's official documentation
 
 ## Chosen approach to home server setup
 
-Combining three local services (**Pi-hole**, **Traefik**, **Portainer**) and **Cloudflare** is a basis for the current home server setup. Here is a brief description of such services:
+Combining three local services (**Bind9**, **Traefik**, **Portainer**) and **Cloudflare** is a basis for the current home server setup. Here is a brief description of such services:
 
-[**Cloudflare**](https://www.cloudflare.com/) - is a global network designed to make everything you connect to the Internet secure, private, fast, and reliable.
-
-[**Pi-hole**](./services/pi-hole/README.md) - is an open-source DNS/Web server capable of blocking ads on devices connected to your home network.
+[**Bind9**](./services/bind9/README.md) - is an open-source DNS server. It shows itself as really reliable solution for my home server.
 
 [**Traefik**](./services/traefik/README.md) - is an open-source Edge Router that makes publishing your services a fun and easy experience. It receives requests on behalf of your system and finds out which components are responsible for handling them.
 
 [**Portainer**](./services/portainer/README.md) - is a powerful container management service that hides the complexity of managing containers behind an easy-to-use UI.
+
+[**Cloudflare**](https://www.cloudflare.com/) - is a global network designed to make everything you connect to the Internet secure, private, fast, and reliable.
 
 Services start-up approach: run every service in a [Docker](https://www.docker.com/) container if possible, and service documentation doesn't say otherwise.
 
@@ -63,7 +63,7 @@ Let's jump to [step-by-step home server "base" setup guide](./setup-guide/README
 │  ├─ 📁data/
 │  ├─ 📁materials/
 │  ├─ 📄 docker-compose.yml
-│  ├─ 📄 .env
+│  ├─ 📄 service.env
 │  ├─ 📄 README.md
 ...
 ```
@@ -73,7 +73,7 @@ Every service in the current repo comes with the following:
 - **README.md** - contains concise service info, guides, notes, possible problems & their solutions, etc.
 - **materials** - materials for service description: media, img, etc.
 - **docker-compose.yml** - ready to deploy docker-compose file
-- **.env** - declaration of required and optional env variables for the current use case.<br>It may not contain all possible service env vars, so please take a look at official service docs for a complete env vars list
+- **service.env** - declaration of required and optional env variables for the current use case.<br>It may not contain all possible service env vars, so please take a look at official service docs for a complete env vars list
 - **data** - root directory for files/directories that need to be mounted into the container
 
 ## Resources
