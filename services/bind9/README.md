@@ -2,6 +2,36 @@
 
 UNDER CONSTRUCTION
 
+- [Bind9](https://www.isc.org/bind/)
+- [Bind9 Docs](https://downloads.isc.org/isc/bind9/9.18.16/doc/arm/html/)
+
+## Service setup
+
+**Configs:**
+
+- [Docker compose file](./docker-compose.yml)
+- [env file with required and optional environment variables](./service.env)
+- [named.conf](./data/config/named.conf)
+- [example.com](./data/config/example.com)
+- [example.com.rev](./data/config/example.com.rev)
+
+**Guides:**
+
+- [You want a real DNS Server at home? (bind9 + docker)](https://youtu.be/syzwLwE3Xq4)
+- [How to Install and Configure a Private BIND DNS Server on Ubuntu 22.04?](https://www.cherryservers.com/blog/how-to-install-and-configure-a-private-bind-dns-server-on-ubuntu-22-04)
+
+### named.conf
+
+UNDER CONSTRUCTION
+
+### example.com
+
+UNDER CONSTRUCTION
+
+### example.com.rev
+
+UNDER CONSTRUCTION
+
 ## Resources
 
 ### YouTube
@@ -10,7 +40,8 @@ UNDER CONSTRUCTION
 
 ### Docs & articles
 
-- [Bind9 Docs](https://bind9.readthedocs.io/en/latest/)
+- [Bind9](https://www.isc.org/bind/)
+- [Bind9 Docs](https://downloads.isc.org/isc/bind9/9.18.16/doc/arm/html/)
 - [Bind9 Docker](https://hub.docker.com/r/ubuntu/bind9)
 - [How to Install and Configure a Private BIND DNS Server on Ubuntu 22.04?](https://www.cherryservers.com/blog/how-to-install-and-configure-a-private-bind-dns-server-on-ubuntu-22-04)
 
@@ -18,3 +49,6 @@ UNDER CONSTRUCTION
 
 - [Docker compose file](./docker-compose.yml)
 - [env file with required and optional environment variables](./service.env)
+- [named.conf](./data/config/named.conf)
+- [example.com](./data/config/example.com)
+- [example.com.rev](./data/config/example.com.rev)
