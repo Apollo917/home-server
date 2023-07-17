@@ -1,9 +1,10 @@
-# Bind9
+# BIND 9
 
-UNDER CONSTRUCTION
+- [BIND 9](https://www.isc.org/bind/)
+- [BIND 9 Docs](https://downloads.isc.org/isc/bind9/9.18.16/doc/arm/html/)
 
-- [Bind9](https://www.isc.org/bind/)
-- [Bind9 Docs](https://downloads.isc.org/isc/bind9/9.18.16/doc/arm/html/)
+BIND 9 - versatile, classic, complete name server software.<br>
+BIND 9 has evolved to be a very flexible, full-featured DNS system. Whatever your application is, BIND 9 probably has the required features
 
 ## Service setup
 
@@ -40,9 +41,9 @@ UNDER CONSTRUCTION
 
 ### Docs & articles
 
-- [Bind9](https://www.isc.org/bind/)
-- [Bind9 Docs](https://downloads.isc.org/isc/bind9/9.18.16/doc/arm/html/)
-- [Bind9 Docker](https://hub.docker.com/r/ubuntu/bind9)
+- [BIND 9](https://www.isc.org/bind/)
+- [BIND 9 Docs](https://downloads.isc.org/isc/bind9/9.18.16/doc/arm/html/)
+- [BIND 9 Docker](https://hub.docker.com/r/ubuntu/bind9)
 - [How to Install and Configure a Private BIND DNS Server on Ubuntu 22.04?](https://www.cherryservers.com/blog/how-to-install-and-configure-a-private-bind-dns-server-on-ubuntu-22-04)
 
 ### Configs

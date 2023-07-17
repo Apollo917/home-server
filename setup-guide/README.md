@@ -17,7 +17,7 @@ In this step-by-step home server "base" setup guide, you will learn how to:
 **Core services setup**
 
 - [Portainer](../services/portainer/README.md)
-- [Bind9](../services/bind9/README.md)
+- [BIND 9](../services/bind9/README.md)
 - [Traefik](../services/traefik/README.md)
 - [Cloudflare](./cloudflare.md)
 

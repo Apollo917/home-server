@@ -37,9 +37,9 @@ So please, be careful and get familiar with the service's official documentation
 
 ## Chosen approach to home server setup
 
-Combining three local services (**Bind9**, **Traefik**, **Portainer**) and **Cloudflare** is a basis for the current home server setup. Here is a brief description of such services:
+Combining three local services (**BIND 9**, **Traefik**, **Portainer**) and **Cloudflare** is a basis for the current home server setup. Here is a brief description of such services:
 
-[**Bind9**](./services/bind9/README.md) - is an open-source DNS server. It shows itself as really reliable solution for my home server.
+[**BIND 9**](./services/bind9/README.md) - is an open-source DNS server. It shows itself as really reliable solution for my home server.
 
 [**Traefik**](./services/traefik/README.md) - is an open-source Edge Router that makes publishing your services a fun and easy experience. It receives requests on behalf of your system and finds out which components are responsible for handling them.
 

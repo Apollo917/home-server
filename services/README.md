@@ -12,7 +12,7 @@ Here is a collection of the services I have used or currently using. Every servi
 ## Networking
 
 - [Pi-hole](./pi-hole/README.md)
-- [Bind9](./bind9/README.md)
+- [BIND 9](./bind9/README.md)
 - [Traefik](./traefik/README.md)
 
 ## Monitoring
