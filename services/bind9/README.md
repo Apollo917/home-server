@@ -21,7 +21,17 @@ BIND 9 has evolved to be a very flexible, full-featured DNS system. Whatever you
 - [You want a real DNS Server at home? (bind9 + docker)](https://youtu.be/syzwLwE3Xq4)
 - [How to Install and Configure a Private BIND DNS Server on Ubuntu 22.04?](https://www.cherryservers.com/blog/how-to-install-and-configure-a-private-bind-dns-server-on-ubuntu-22-04)
 
-Lets take a look at the configuration files and their structure.<br>
+**Note**
+
+**✎** When you will try to run your BIND9 docker container, you'll probably face error. It is because that the port **53** is already in use.<br>
+But there is a simple way to fix it:
+
+- open `/etc/systemd/resolved.conf` file **with root privileges** in any text editor, e.g. `sudo nano /etc/systemd/resolved.conf`
+- find and uncomment (remove **#** in front of) the **DNSStubListener** property
+- set its value to **no** save and close the file
+- restart systemd-resolved service by the following command: `sudo systemctl restart systemd-resolved`
+
+And now lets take a look at the configuration files and their structure.<br>
 Note, that in your case IP addresses and subnets may differ. Also I've used **example.com** domain name for demo purpose, please replace it with your domain name.
 
 ### named.conf
