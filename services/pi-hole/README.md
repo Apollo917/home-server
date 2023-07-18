@@ -85,8 +85,6 @@ Here are a few ways to solve or live with it:
 - [Chrome] Clear Chrome's DNS cache with the help of the `chrome://net-internals/#dns` page
 - [Force Chrome and Edge to use local DNS](https://bugdrivendevelopment.net/browser-ignore-internal-dns/)
 
-➡️ [**The next step: Traefik**](../traefik/README.md)
-
 ## Resources
 
 ### YouTube

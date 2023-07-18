@@ -38,7 +38,7 @@ Until Traefik and Pi-hole setup, it is better to keep port 9443 accessible from 
 - [Install Portainer BE with Docker on Linux](https://docs.portainer.io/start/install/server/docker/linux)
 - [Deploying Portainer behind Traefik Proxy](https://docs.portainer.io/advanced/reverse-proxy/traefik)
 
-➡️ [**The next step: Pi-hole**](../pi-hole/README.md)
+➡️ [**The next step: BIND 9**](../bind9/README.md)
 
 ## Resources
 

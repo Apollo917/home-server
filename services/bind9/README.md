@@ -112,6 +112,8 @@ This line specifies that the nameserver for the zone is "example.com.".
 
 This line defines a **pointer (PTR) record**, which maps an IP address to a domain name. It associates the IP address **192.168.0.100** with the domain name "**example.com**" in reverse. PTR records are used for reverse DNS lookups.
 
+➡️ [**The next step: Traefik**](../traefik/README.md)
+
 ## Resources
 
 ### YouTube
