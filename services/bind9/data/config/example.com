@@ -1,6 +1,6 @@
 $TTL  2d
 @     IN    SOA   example.com. admin.example.com. (
-                  2307171859     ; Serial Note: increment after each change
+                  2307182003     ; Serial Note: increment after each change
                   12h            ; Refresh
                   15m            ; Retry
                   3w             ; Expire
