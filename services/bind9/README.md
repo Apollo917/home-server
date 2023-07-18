@@ -25,7 +25,7 @@ BIND 9 has evolved to be a very flexible, full-featured DNS system. Whatever you
 
 Lets take a look at named.conf config file structure.
 
-**ACL (Access Control List)**
+#### ACL (Access Control List)
 
 The ACL section defines an access control list named "**LAN**" that specifies which IP addresses or networks are allowed to query this DNS server. In this case, the following entities are allowed:
 
